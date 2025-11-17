@@ -157,6 +157,9 @@ def train_and_evaluate_models(X, y_gender, y_age):
     # Predictions
     gender_pred = gender_model.predict(X_test_enhanced)
     age_pred = age_model.predict(X_test_enhanced)
+    gender_proba = gender_model.predict_proba(X_test_enhanced)
+    age_proba = age_model.predict_proba(X_test_enhanced)
+
 
     # Accuracy and reports
     return {
@@ -166,7 +169,9 @@ def train_and_evaluate_models(X, y_gender, y_age):
         'age_report': classification_report(y_age_test, age_pred),
         'gender_model': gender_model,
         'age_model': age_model,
-        'test_data': (X_test_enhanced, y_gender_test, y_age_test)
+        'test_data': (X_test_enhanced, y_gender_test, y_age_test),
+        'gender_proba': gender_proba,
+        'age_proba': age_proba
     }
 
 

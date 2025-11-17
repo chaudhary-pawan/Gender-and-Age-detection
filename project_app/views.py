@@ -10,14 +10,17 @@ def index(request):
         voice = float(request.POST.get("voice_pitch"))
         bmi = float(request.POST.get("bmi"))
 
-        gender, age = predict_gender_age(height, weight, voice, bmi)
+        result = predict_gender_age(height, weight, voice, bmi)
 
         prediction = {
-            "gender": "Male" if gender == 1 else "Female",
-            "age": age
+            "gender": result["gender"],
+            "gender_confidence": result["gender_confidence"],
+            "age_group": result["age_group"],
+            "age_confidence": result["age_confidence"]
         }
 
     return render(request, "index.html", {"prediction": prediction})
+
 
 def home(request):
     return render(request, "home.html")
