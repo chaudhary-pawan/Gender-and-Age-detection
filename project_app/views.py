@@ -18,9 +18,9 @@ def index(request):
             height = float(form_data["height"])
             weight = float(form_data["weight"])
             voice = float(form_data["voice_pitch"])
-            bmi = float(form_data["bmi"]) if form_data["bmi"] else 0
+            bmi = float(form_data["bmi"]) if form_data["bmi"] else None
         except (TypeError, ValueError):
-            error = "Please enter numeric values for Height, Weight, and Voice Pitch."
+            error = "Please enter numeric values for Height, Weight, Voice Pitch, and BMI."
         else:
             if height <= 0:
                 error = "Height must be greater than zero."
@@ -29,7 +29,7 @@ def index(request):
             elif voice <= 0:
                 error = "Voice Pitch must be greater than zero."
             else:
-                if bmi <= 0:
+                if bmi is None or bmi <= 0:
                     bmi = weight / ((height / 100) ** 2)
 
                 form_data["bmi"] = f"{bmi:.2f}"
