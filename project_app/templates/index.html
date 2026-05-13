@@ -175,7 +175,7 @@
 
             <input type="number" min="1" step="0.1" name="voice_pitch" placeholder="Voice Pitch" value="{{ form_data.voice_pitch }}" required>
 
-            <input id="bmi" type="number" min="1" step="0.01" name="bmi" placeholder="BMI (auto-calculated)" value="{{ form_data.bmi }}" readonly required>
+            <input id="bmi" type="number" min="1" step="0.01" name="bmi" placeholder="BMI (auto-calculated)" value="{{ form_data.bmi }}" readonly>
             <p class="meta">BMI is automatically calculated from height and weight.</p>
 
             {% if error %}
