@@ -37,7 +37,7 @@ def index(request):
                 "age_confidence": result["age_confidence"],
             }
         except (TypeError, ValueError):
-            error = "Please enter valid positive values for Height, Weight, and Voice Pitch."
+            error = "Please enter valid positive values for Height, Weight, and Voice Pitch. BMI is auto-calculated."
 
     return render(request, "index.html", {"prediction": prediction, "error": error, "form_data": form_data})
 
