@@ -22,8 +22,10 @@ def index(request):
         except (TypeError, ValueError):
             error = "Please enter numeric values for Height, Weight, and Voice Pitch."
         else:
-            if height <= 0 or weight <= 0:
-                error = "Height and Weight must be greater than zero."
+            if height <= 0:
+                error = "Height must be greater than zero."
+            elif weight <= 0:
+                error = "Weight must be greater than zero."
             elif voice <= 0:
                 error = "Voice Pitch must be greater than zero."
             else:
