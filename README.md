@@ -47,6 +47,24 @@ This Django project provides a web application and an API to predict a person's 
 7. Open your browser:
    http://127.0.0.1:8000/ — upload an image to see predictions.
 
+## Deploy on Vercel
+
+1. Push this repository to GitHub.
+2. Import the project in Vercel.
+3. In Project Settings → Build & Development Settings:
+   - Build Command: `bash build_files.sh`
+   - Output Directory: leave empty
+4. Add environment variables in Vercel:
+   - `SECRET_KEY` = your secure Django key
+   - `DEBUG` = `False`
+   - `ALLOWED_HOSTS` = `.vercel.app`
+   - Optional: `RUN_MIGRATIONS` = `true` (only when you explicitly want migrations during build)
+5. Deploy.
+
+The app entrypoint is `myproject/wsgi.py` (configured in `vercel.json`), and model files are loaded from the repository root.
+
+For local development with `DEBUG=True`, set `DEV_SECRET_KEY` (or `SECRET_KEY`) before running Django.
+
 ## API Usage
 
 POST /api/predict/ (example)
