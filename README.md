@@ -58,9 +58,12 @@ This Django project provides a web application and an API to predict a person's 
    - `SECRET_KEY` = your secure Django key
    - `DEBUG` = `False`
    - `ALLOWED_HOSTS` = `.vercel.app`
+   - Optional: `RUN_MIGRATIONS` = `true` (only when you explicitly want migrations during build)
 5. Deploy.
 
 The app entrypoint is `myproject/wsgi.py` (configured in `vercel.json`), and model files are loaded from the repository root.
+
+For local development with `DEBUG=True`, set `DEV_SECRET_KEY` (or `SECRET_KEY`) before running Django.
 
 ## API Usage
 
