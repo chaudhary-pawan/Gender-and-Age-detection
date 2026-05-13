@@ -14,5 +14,9 @@
       "src": "/(.*)",
       "dest": "myproject/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "SECRET_KEY": "@secret_key",
+    "DEBUG": "False"
+  }
 }
