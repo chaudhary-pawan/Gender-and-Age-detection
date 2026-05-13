@@ -1,6 +1,7 @@
 import joblib
 import numpy as np
 from sklearn.preprocessing import PolynomialFeatures
+from pathlib import Path
 
 # -----------------------------------
 # Age group mapping
@@ -30,9 +31,10 @@ def create_feature_matrix(X):
 # -----------------------------------
 # Load trained ML models
 # -----------------------------------
-gender_model = joblib.load('gender_model.pkl')
-age_model = joblib.load('age_model.pkl')
-scaler = joblib.load('scaler.pkl')
+BASE_DIR = Path(__file__).resolve().parent.parent
+gender_model = joblib.load(BASE_DIR / 'gender_model.pkl')
+age_model = joblib.load(BASE_DIR / 'age_model.pkl')
+scaler = joblib.load(BASE_DIR / 'scaler.pkl')
 
 # -----------------------------------
 # Predict Gender + Age + Accuracy
